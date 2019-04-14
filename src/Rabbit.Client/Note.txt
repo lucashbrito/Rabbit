@@ -1,0 +1,2 @@
+﻿Worker queues will work with many servers. Then the first queue services are 
+available the service will receive the message. 
