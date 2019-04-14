@@ -10,6 +10,7 @@ namespace Rabbit.Client
         static string Password = "guest";
         static string QueueName;
         static string ExchangeName;
+
         static void Main(string[] args)
         {
             var message = Console.ReadLine();
@@ -23,7 +24,8 @@ namespace Rabbit.Client
         {
             QueueName = "Basic";
             ExchangeName = "Basic";
-            var messageBuffer = Encoding.Default.GetBytes(message);
+            var messageBuffer = Encoding.Default.GetBytes($"'prop:'{message}'");
+
             var basicQueue = new BasicQueue(QueueName, ExchangeName, HostName, UserName, Password);
 
             basicQueue.CreateBasicQueue(messageBuffer);
@@ -33,7 +35,7 @@ namespace Rabbit.Client
         {
             QueueName = "OneWay";
             ExchangeName = "OneWay";
-            var messageBuffer = Encoding.Default.GetBytes(message);
+            var messageBuffer = Encoding.Default.GetBytes($"'prop:'{message}'");
             var oneWay = new OneWayQueue(QueueName, ExchangeName, HostName, UserName, Password);
 
             oneWay.CreateOneWayQueue(messageBuffer);

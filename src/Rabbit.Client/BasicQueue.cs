@@ -12,6 +12,7 @@ namespace Rabbit.Client
         }
         public void CreateBasicQueue(byte[] body)
         {
+            Properties.ContentType = "application/json";
             Model.BasicPublish(ExchangeName, QueueName, false, Properties, body);
         }
     }
