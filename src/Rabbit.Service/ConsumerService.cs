@@ -6,7 +6,7 @@ using RabbitMQ.Client.Events;
 
 namespace Rabbit.Service
 {
-    public class ConsumerService : ConsumerFactory
+    public class ConsumerService : ConsumerFactory 
     {
         public ConsumerService(string queueName, string exchangeName, string hostName, string userName, string password) : base(queueName, exchangeName, hostName, userName, password)
         {
